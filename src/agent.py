@@ -11,15 +11,15 @@ class PongAgent:
     def generate_episode(self):
         pass
 
-
     def update(self):
         episode = self.generate_episode()
         pass
 
     def train(self, num_episodes):
-        for _ in range(num_episodes):
+        for ep in range(num_episodes):
             self.update()
-
+            print("Training episode: ", ep)
+            
     def get_best_action(self, state):
         """Return the best action for a given state."""
         state_str = str(state)

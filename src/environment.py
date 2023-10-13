@@ -19,5 +19,3 @@ class PongEnv(gym.Env):
     
     def close(self) -> None:
         pass
-    
-    
