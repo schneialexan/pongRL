@@ -3,7 +3,7 @@ import preprocess_frame as ppf
 import numpy as np
 
 
-def initialize_new_game(name, env, agent):
+def initialize_new_game(env, agent):
     """We don't want an agents past game influencing its new game, so we add in some dummy data to initialize"""
     
     env.reset()
@@ -15,11 +15,11 @@ def initialize_new_game(name, env, agent):
     for i in range(3):
         agent.memory.add_experience(starting_frame, dummy_reward, dummy_action, dummy_done)
 
-def make_env(name, agent, render_mode="rgb_array"):
+def make_env(name, render_mode="rgb_array"):
     env = gym.make(name, render_mode=render_mode)
     return env
 
-def take_step(name, env, agent, score, debug):
+def take_step(env, agent, score, debug):
     
     #1 and 2: Update timesteps and save weights
     agent.total_timesteps += 1
@@ -34,7 +34,7 @@ def take_step(name, env, agent, score, debug):
     next_frame = ppf.resize_frame(next_frame)
     new_state = [agent.memory.frames[-3], agent.memory.frames[-2], agent.memory.frames[-1], next_frame]
     new_state = np.moveaxis(new_state,0,2)/255 #We have to do this to get it into keras's goofy format of [batch_size,rows,columns,channels]
-    new_state = np.expand_dims(new_state,0) #^^^
+    new_state = np.expand_dims(new_state,0) 
     
     #5: Get next action, using next state
     next_action = agent.get_action(new_state)
@@ -57,12 +57,10 @@ def take_step(name, env, agent, score, debug):
 
     return (score + next_frames_reward),False
 
-def play_episode(name, env, agent, debug = False):
-    initialize_new_game(name, env, agent)
+def play_episode(env, agent, debug = False):
+    initialize_new_game(env, agent)
     done = False
     score = 0
-    while True:
-        score,done = take_step(name,env,agent,score, debug)
-        if done:
-            break
+    while not done:
+        score, done = take_step(env,agent,score, debug)
     return score
