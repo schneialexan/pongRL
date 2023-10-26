@@ -21,7 +21,7 @@ max_score = -21
 """ If testing:
 agent.model.load_weights('recent_weights.hdf5')
 agent.model_target.load_weights('recent_weights.hdf5')
-agent.epsilon = 0.0
+agent.epsilon = 0.0  # 0.5500449999981624
 """
 
 env.reset()
