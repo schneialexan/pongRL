@@ -1,6 +1,6 @@
 <div align="center">
 <h1 align="center">
-<img src="https://github.com/schneialexan/pongRL/blob/main/exlporation/gifs/episode_130.gif?raw=true" width="100" height="100"/>
+<img src="https://github.com/schneialexan/pongRL/blob/main/exlporation/gifs/episode_130.gif?raw=true" width="300" height="300"/>
 <br></h1>
 <h3>Pong Reinforcement Learning</h3>
 <h3>FHGR- BSc Computational and Data Science - CDS-117</h3>
