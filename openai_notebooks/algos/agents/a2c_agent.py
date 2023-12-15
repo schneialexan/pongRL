@@ -65,7 +65,7 @@ class A2CAgent():
            self.learn(next_state)
            self.reset_memory()
                 
-    def act(self, state):
+    def act(self, state, eps=0.):
         """Returns action, log_prob, entropy for given state as per current policy."""
         
         state = torch.from_numpy(state).unsqueeze(0).to(self.device)

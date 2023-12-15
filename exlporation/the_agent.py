@@ -1,5 +1,3 @@
-from tabnanny import verbose
-from matplotlib import type1font
 from tensorflow.keras.models import Sequential, clone_model
 from tensorflow.keras.layers import Dense, Flatten, Conv2D, Input
 from tensorflow.keras.optimizers import Adam
@@ -48,7 +46,7 @@ class Agent():
             return random.sample(self.possible_actions,1)[0]
 
         """Do Best Acton"""
-        a_index = np.argmax(self.model.predict(state, verbose = 0))
+        a_index = np.argmax(self.model.predict(state, verbose = 0, workers=-1, use_multiprocessing=True))
         return self.possible_actions[a_index]
 
     def _index_valid(self,index):
@@ -83,8 +81,8 @@ class Agent():
                 next_done_flags.append(self.memory.done_flags[index+1])
 
         """Now we get the ouputs from our model, and the target model. We need this for our target in the error function"""
-        labels = self.model.predict(np.array(states), verbose = 0)
-        next_state_values = self.model_target.predict(np.array(next_states), verbose = 0)
+        labels = self.model.predict(np.array(states), verbose = 0, workers=-1, use_multiprocessing=True)
+        next_state_values = self.model_target.predict(np.array(next_states), verbose = 0, workers=-1, use_multiprocessing=True)
         
         """Now we define our labels, or what the output should have been
            We want the output[action_taken] to be R_(t+1) + Qmax_(t+1) """
@@ -93,7 +91,7 @@ class Agent():
             labels[i][action] = next_rewards[i] + (not next_done_flags[i]) * self.gamma * max(next_state_values[i])
 
         """Train our model using the states and outputs generated"""
-        self.model.fit(np.array(states),labels,batch_size = 32, epochs = 1, verbose = 0)
+        self.model.fit(np.array(states),labels,batch_size = 32, epochs = 1, verbose = 0, workers=-1, use_multiprocessing=True)
 
         """Decrease epsilon and update how many times our agent has learned"""
         if self.epsilon > self.epsilon_min:

@@ -1,6 +1,7 @@
 import gym
 import preprocess_frame as ppf
 import numpy as np
+import imageio
 
 
 def initialize_new_game(env, agent):
@@ -14,12 +15,13 @@ def initialize_new_game(env, agent):
     dummy_done = False
     for i in range(3):
         agent.memory.add_experience(starting_frame, dummy_reward, dummy_action, dummy_done)
+    return starting_frame
 
 def make_env(name, render_mode="rgb_array"):
     env = gym.make(name, render_mode=render_mode)
     return env
 
-def take_step(env, agent, score, debug):
+def take_step(env, agent, score, debug, to_animate):
     
     #1 and 2: Update timesteps and save weights
     agent.total_timesteps += 1
@@ -54,13 +56,14 @@ def take_step(env, agent, score, debug):
     #9: If the threshold memory is satisfied, make the agent learn from memory
     if len(agent.memory.frames) > agent.starting_mem_len:
         agent.learn(debug)
-
-    return (score + next_frames_reward),False
+    to_animate.append(env.render())
+    return (score + next_frames_reward), False
 
 def play_episode(env, agent, debug = False):
     initialize_new_game(env, agent)
     done = False
     score = 0
+    to_animate = []
     while not done:
-        score, done = take_step(env,agent,score, debug)
-    return score
+        score, done = take_step(env,agent,score, debug, to_animate)
+    return score, to_animate

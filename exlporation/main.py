@@ -1,9 +1,11 @@
 import the_agent
 import environment
-import matplotlib.pyplot as plt
 import time
 from collections import deque
 import numpy as np
+import imageio
+import preprocess_frame as ppf
+import cv2
 
 name = 'PongDeterministic-v4'
 
@@ -18,26 +20,47 @@ last_100_avg = [-21]
 scores = deque(maxlen = 100)
 max_score = -21
 
-""" If testing:
-agent.model.load_weights('recent_weights.hdf5')
-agent.model_target.load_weights('recent_weights.hdf5')
-agent.epsilon = 0.0  # 0.5500449999981624
-"""
+
+# testing
+#agent.model.load_weights('recent_weights.hdf5')
+#agent.model_target.load_weights('recent_weights.hdf5')
+#agent.epsilon = 0.0
+
 
 env.reset()
-
-for i in range(1000000):
+for i in range(151):
     timesteps = agent.total_timesteps
     timee = time.time()
-    score = environment.play_episode(env, agent, debug = False)
+    score, to_animate = environment.play_episode(env, agent, debug = False)
     scores.append(score)
     if score > max_score:
         max_score = score
+    
+    if i % 10 == 0:
+        frame_number = agent.total_timesteps - timesteps
+        imageio.mimsave(f'gifs/restart/episode_{i}_score_{score}_frames_{frame_number}.gif', to_animate)
+        print(f'Episode {i} saved.')
 
-    print('\nEpisode: ' + str(i))
-    print('Steps: ' + str(agent.total_timesteps - timesteps))
-    print('Duration: ' + str(time.time() - timee))
-    print('Score: ' + str(score))
-    print('Max Score: ' + str(max_score))
-    print('Epsilon: ' + str(agent.epsilon))
-    print('Memory Length: ' + str(len(agent.memory.frames)))
+env.reset()
+score = 0
+next_frame = ppf.resize_frame(env.render())
+agent.memory.frames.append(next_frame)
+agent.memory.frames.append(next_frame)
+agent.memory.frames.append(next_frame)
+to_animate = []	
+while True:
+    state = [agent.memory.frames[-3], agent.memory.frames[-2], agent.memory.frames[-1], next_frame]
+    state = np.moveaxis(state,0,2)/255 #We have to do this to get it into keras's goofy format of [batch_size,rows,columns,channels]
+    state = np.expand_dims(state,0) 
+    to_animate.append(env.render())
+    action = agent.get_action(state)
+    observation, reward, terminated, truncated, info= env.step(action)
+    score += reward
+    next_frame = ppf.resize_frame(observation)
+    agent.memory.frames.append(next_frame)
+    if terminated:
+        break
+env.close()
+imageio.mimsave('gifs/final.gif', to_animate)
+
+print(f'Done!!')
