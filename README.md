@@ -1,9 +1,9 @@
 <div align="center">
 <h1 align="center">
-<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/ec559a9f6bfd399b82bb44393651661b08aaf7ba/icons/folder-markdown-open.svg" width="100" />
+<img src="https://github.com/schneialexan/pongRL/blob/main/exlporation/gifs/episode_130.gif?raw=true" width="100" height="100"/>
 <br></h1>
-<h3>◦ ► INSERT-TEXT</h3>
-<h3>◦ Developed with the software and tools below.</h3>
+<h3>Pong Reinforcement Learning</h3>
+<h3>FHGR- BSc Computational and Data Science - CDS-117</h3>
 
 <p align="center">
 <img src="https://img.shields.io/badge/tqdm-FFC107.svg?style&logo=tqdm&logoColor=black" alt="tqdm" />
@@ -16,10 +16,10 @@
 <img src="https://img.shields.io/badge/pandas-150458.svg?style&logo=pandas&logoColor=white" alt="pandas" />
 <img src="https://img.shields.io/badge/NumPy-013243.svg?style&logo=NumPy&logoColor=white" alt="NumPy" />
 </p>
-<img src="https://img.shields.io/github/license/.?style&color=5D6D7E" alt="GitHub license" />
-<img src="https://img.shields.io/github/last-commit/.?style&color=5D6D7E" alt="git-last-commit" />
-<img src="https://img.shields.io/github/commit-activity/m/.?style&color=5D6D7E" alt="GitHub commit activity" />
-<img src="https://img.shields.io/github/languages/top/.?style&color=5D6D7E" alt="GitHub top language" />
+<img src="https://img.shields.io/badge/github-license-5D6D7E" alt="GitHub license" />
+<img src="https://img.shields.io/badge/github-last_commit-5D6D7E" alt="git-last-commit" />
+<img src="https://img.shields.io/badge/github-commit_activity-5D6D7E" alt="GitHub commit activity" />
+<img src="https://img.shields.io/badge/github-languages_top-5D6D7E" alt="GitHub top language" />
 </div>
 
 ---
@@ -44,7 +44,7 @@
 
 ## 📍 Overview
 
-► INSERT-TEXT
+► Many different way to use Reinforcement learning for a game called Pong.
 
 ---
 
@@ -92,37 +92,36 @@
 
 | File | Summary |
 | --- | --- |
-| [.gitignore](.gitignore) | ► INSERT-TEXT |
-| [MC.ipynb](MC.ipynb) | ► INSERT-TEXT |
-| [recent_weights.hdf5](recent_weights.hdf5) | ► INSERT-TEXT |
-| [requirements.txt](requirements.txt) | ► INSERT-TEXT |
+| [MC.ipynb](MC.ipynb) | MonteCarlo Testing |
+| [requirements.txt](requirements.txt) | Requirements for the project to work |
 
 <details closed><summary>exlporation</summary>
 
+The best working RL, but also the most Resource and Time intensive.
+
 | File | Summary |
 | --- | --- |
-| [agent_memory.py](agent_memory.py) | ► INSERT-TEXT |
-| [debug.py](debug.py) | ► INSERT-TEXT |
-| [environment.py](environment.py) | ► INSERT-TEXT |
-| [main.py](main.py) | ► INSERT-TEXT |
-| [preprocess_frame.py](preprocess_frame.py) | ► INSERT-TEXT |
-| [the_agent.py](the_agent.py) | ► INSERT-TEXT |
+| [agent_memory.py](agent_memory.py) | Memory, which the agent uses to store the necessary data|
+| [debug.py](debug.py) | For debugging purposes, where more information is needed and replayability is highly valued|
+| [environment.py](environment.py) | The Pong Environment |
+| [main.py](main.py) | Starting and printing the GIFS|
+| [preprocess_frame.py](preprocess_frame.py) | To make it easier for the CNN to learn |
+| [the_agent.py](the_agent.py) | The Agent |
 
 </details>
 
 
 <details closed><summary>openai_notebooks</summary>
 
+Complete Notebooks from openai themself. But its outdated.
+
 | File | Summary |
 | --- | --- |
-| [__init__.py](__init__.py) | ► INSERT-TEXT |
-| [animation.gif](animation.gif) | ► INSERT-TEXT |
-| [ping_pong_a2c.ipynb](ping_pong_a2c.ipynb) | ► INSERT-TEXT |
-| [ping_pong_ddqn.ipynb](ping_pong_ddqn.ipynb) | ► INSERT-TEXT |
-| [ping_pong_dqn.ipynb](ping_pong_dqn.ipynb) | ► INSERT-TEXT |
-| [ping_pong_pg.ipynb](ping_pong_pg.ipynb) | ► INSERT-TEXT |
-| [ping_pong_ppo.ipynb](ping_pong_ppo.ipynb) | ► INSERT-TEXT |
-| [ping_pong_rainbow.ipynb](ping_pong_rainbow.ipynb) | ► INSERT-TEXT |
+| [ping_pong_a2c.ipynb](ping_pong_a2c.ipynb) | Actor-Critic Model |
+| [ping_pong_ddqn.ipynb](ping_pong_ddqn.ipynb) | Double Deep Q Network |
+| [ping_pong_dqn.ipynb](ping_pong_dqn.ipynb) | Deep Q Network |
+| [ping_pong_pg.ipynb](ping_pong_pg.ipynb) | Policy Gradient Model |
+| [ping_pong_ppo.ipynb](ping_pong_ppo.ipynb) | Proximal Policy Optimization |
 
 <details closed><summary>algos</summary>
 
@@ -184,25 +183,23 @@
 
 <details closed><summary>src</summary>
 
-| File | Summary |
-| --- | --- |
 
 <details closed><summary>model_based</summary>
 
 | File | Summary |
 | --- | --- |
-| [3.7 Dueling DQN with Pong.ipynb](3.7 Dueling DQN with Pong.ipynb) | ► INSERT-TEXT |
-| [agent.py](agent.py) | ► INSERT-TEXT |
-| [main.py](main.py) | ► INSERT-TEXT |
+| [3.7 Dueling DQN with Pong.ipynb](3.7 Dueling DQN with Pong.ipynb) | Simple DQN implementation |
+| [agent.py](agent.py) | corresponding Agent |
+| [main.py](main.py) | Main |
 
 <details closed><summary>methods</summary>
 
 | File | Summary |
 | --- | --- |
-| [A3C.py](A3C.py) | ► INSERT-TEXT |
-| [DDQN.py](DDQN.py) | ► INSERT-TEXT |
-| [DQL.py](DQL.py) | ► INSERT-TEXT |
-| [ppf.py](ppf.py) | ► INSERT-TEXT |
+| [A3C.py](A3C.py) | Helpers |
+| [DDQN.py](DDQN.py) | Helpers |
+| [DQL.py](DQL.py) | Helpers |
+| [ppf.py](ppf.py) | Helpers |
 
 </details>
 
@@ -211,14 +208,15 @@
 
 
 <details closed><summary>model_free</summary>
+Q-Learning
 
 | File | Summary |
 | --- | --- |
-| [agent.py](agent.py) | ► INSERT-TEXT |
-| [debug.ipynb](debug.ipynb) | ► INSERT-TEXT |
-| [environment.py](environment.py) | ► INSERT-TEXT |
-| [main.py](main.py) | ► INSERT-TEXT |
-| [pong_episode.gif](pong_episode.gif) | ► INSERT-TEXT |
+| [agent.py](agent.py) |Agent |
+| [debug.ipynb](debug.ipynb) | Debugging Purpose |
+| [environment.py](environment.py) | Pong Environment|
+| [main.py](main.py) | Main |
+| [pong_episode.gif](pong_episode.gif) | One Pong Episode/Game |
 
 </details>
 
@@ -234,38 +232,42 @@
 
 Please ensure you have the following dependencies installed on your system:
 
-`- ℹ️ Dependency 1`
+`- ℹ️ Python=3.9`
 
-`- ℹ️ Dependency 2`
+`- ℹ️ pip install gymnasium`
 
-`- ℹ️ ...`
+`- ℹ️ pip install atari-py ale-py`
+
+`- ℹ️ pip install -r requirements.txt`
+
 
 ### 🔧 Installation
 
 1. Clone the  repository:
 ```sh
-git clone .
+git clone git@github.com:schneialexan/pongRL.git
 ```
 
 2. Change to the project directory:
 ```sh
-cd 
+cd pongRL
 ```
 
 3. Install the dependencies:
 ```sh
-► INSERT-TEXT
+pip install -r requirements.txt
 ```
 
 ### 🤖 Running 
 
 ```sh
-► INSERT-TEXT
+cd exploration
+python main.py
 ```
 
 ### 🧪 Tests
 ```sh
-► INSERT-TEXT
+In the Jupyter Notebooks
 ```
 
 ---
@@ -273,9 +275,10 @@ cd
 
 ## 🛣 Roadmap
 
-> - [X] `ℹ️  Task 1: Implement X`
-> - [ ] `ℹ️  Task 2: Implement Y`
-> - [ ] `ℹ️ ...`
+> - [X] `ℹ️  Task 1: Implement Simple Q-Learning`
+> - [X] `ℹ️  Task 2: Research other Peoples Work`
+> - [X] `ℹ️  Task 3: Implement Deep Q Learning`
+> - [ ] `ℹ️  TODO: Optimize Q Learning`
 
 
 ---
@@ -311,7 +314,7 @@ This project is licensed under the `ℹ️  LICENSE-TYPE` License. See the [LICE
 
 ## 👏 Acknowledgments
 
-`- ℹ️ List any resources, contributors, inspiration, etc.`
+`- ℹ️  Garvin Kruthof (Prof)`
 
 [↑ Return](#Top)
 
