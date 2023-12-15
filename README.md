@@ -61,7 +61,7 @@
 └── /
     ├── .gitignore
     ├── MC.ipynb
-    ├── exlporation/
+    ├── src/
     │   ├── agent_memory.py
     │   ├── debug.py
     │   ├── environment.py
@@ -78,9 +78,8 @@
     │   ├── ping_pong_pg.ipynb
     │   ├── ping_pong_ppo.ipynb
     │   └── ping_pong_rainbow.ipynb
-    ├── recent_weights.hdf5
     ├── requirements.txt
-    └── src/
+    └── exlporing/
         ├── model_based/
         └── model_free/
 ```
@@ -95,7 +94,7 @@
 | [MC.ipynb](MC.ipynb) | MonteCarlo Testing |
 | [requirements.txt](requirements.txt) | Requirements for the project to work |
 
-<details closed><summary>exlporation</summary>
+<details closed><summary>src</summary>
 
 The best working RL, but also the most Resource and Time intensive.
 
@@ -181,7 +180,7 @@ Complete Notebooks from openai themself. But its outdated.
 </details>
 
 
-<details closed><summary>src</summary>
+<details closed><summary>exploring</summary>
 
 
 <details closed><summary>model_based</summary>
